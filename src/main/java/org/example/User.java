@@ -30,4 +30,10 @@ public class User {
         return email;
     }
 
+    @Override
+    public String toString() {
+        return "ID: " + getId() + "\nNamn: " + getName() + "\nEmail: " + getEmail() + "\n";
+    }
 }
+
+

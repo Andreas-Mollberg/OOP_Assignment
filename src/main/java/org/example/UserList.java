@@ -13,6 +13,7 @@ public class UserList {
     }
 
     public void addUser(String userName, String email) {
+        // Create a variable to make sure each user id is unique
         int newUserId = 1;
 
         for (User user : users) {
@@ -54,10 +55,5 @@ public class UserList {
         return users;
     }
 
-    @Override
-    public String toString() {
-        return "UserList{" +
-                "users=" + users +
-                '}';
-    }
+
 }

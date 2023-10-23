@@ -9,9 +9,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         UserList userList = new UserList();
 
-        userList.addUser("Alice", "alice@example.com");
-        userList.addUser("Bob", "bob@example.com");
-        userList.addUser("Charlie", "charlie@example.com");
+        userList.addUser("Geetika", "Geetika@example.com");
+        userList.addUser("Adam", "Adam@example.com");
+        userList.addUser("Linus", "Linus@example.com");
+
+
 
         ArrayList<User> users = userList.getUsers();
 
@@ -30,6 +32,7 @@ public class Main {
 
 
                     case 1:
+                        userList.sortUsers();
                         for (User user : users) {
                             System.out.println("ID: " + user.getId() + ", Namn: " + user.getName() + ", Email: " + user.getEmail());
                         }
@@ -58,7 +61,8 @@ public class Main {
                         System.out.println("Ange id för användaren som ska sökas upp: ");
                         String idToSearchForInput = scanner.nextLine();
                         int idToSearchFor = Integer.parseInt(idToSearchForInput);
-                        System.out.println(userList.searchUserById(idToSearchFor));
+                        var foundUser = userList.searchUserById(idToSearchFor);
+                        System.out.println(foundUser.toString());
 
                         break;
                     case 5:
