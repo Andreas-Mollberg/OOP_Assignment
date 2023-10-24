@@ -19,11 +19,12 @@ public class Main {
 
         while (true) {
             System.out.println("Ange ditt val: \n");
-            System.out.println("1. Visa användare. " +
-                    "\n2. Lägg till användare. " +
-                    "\n3. Ta bort användare. " +
-                    "\n4. Sök efter användare med id. " +
-                    "\n5. Stäng programmet.");
+            System.out.println("""
+                    1. Visa användare.\s
+                    2. Lägg till användare.\s
+                    3. Ta bort användare.\s
+                    4. Sök efter användare med id.\s
+                    5. Stäng programmet.""");
             try {
                 String input = scanner.nextLine();
                 int switcher = Integer.parseInt(input);
