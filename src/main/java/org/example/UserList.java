@@ -6,53 +6,53 @@ import java.util.Comparator;
 
 public class UserList {
 
-    private ArrayList<User> users;
+    // Create an ArrayList of users.
+    private ArrayList<User> userList;
+    private int nextUserId; // Variable to allocate unique user ids.
 
+    // Constructor for UserList.
     public UserList(){
-        users = new ArrayList<>();
+        userList = new ArrayList<>();
+        nextUserId = 1;
     }
 
+    // Method to add a new user to the list.
     public void addUser(String userName, String email) {
-        // Create a variable to make sure each user id is unique
-        int newUserId = 1;
-
-        for (User user : users) {
-            if (user.getId() >= newUserId) {
-                newUserId = user.getId() + 1;
-            }
-        }
+        // Create a variable for the new user's id and assign the value of nextUserId to it.
+        int newUserId = nextUserId;
+        nextUserId++;  // increment the value of nextUserId by one.
 
         User newUser = new User(newUserId, userName, email);
-        users.add(newUser);
+        userList.add(newUser);
     }
+
+    // Method to remove user from the list by id variable.
     public void removeUser(int id){
-        User userToRemove = null;
-        for (User user : users) {
-                if (user.getId() == id){
-                    userToRemove = user;
-                    break;
-                }
-        }
+        User userToRemove = searchUserById(id);
         if (userToRemove != null){
-            users.remove(userToRemove);
+            userList.remove(userToRemove);
         }
     }
 
+    // Method to search user by id variable.
     public User searchUserById(int id){
-        for (User user : users){
+        for (User user : userList){
             if (user.getId() == id){
                 return user;
             }
         }
         return null;
     }
+
+    // Method to sort userList.
     public void sortUsers() {
-        Collections.sort(users, Comparator.comparing(User::getName));
+        Collections.sort(userList, Comparator.comparing(User::getName));
 
     }
 
-    public ArrayList<User> getUsers() {
-        return users;
+    // Getter for the userList.
+    public ArrayList<User> getUserList() {
+        return userList;
     }
 
 
