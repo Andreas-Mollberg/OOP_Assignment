@@ -30,11 +30,7 @@ public class User {
         return email;
     }
 
-    // toString method in order to print a user.
-    @Override
-    public String toString() {
-        return "ID: " + getId() + "\nNamn: " + getName() + "\nEmail: " + getEmail() + "\n";
-    }
+
 }
 
 
