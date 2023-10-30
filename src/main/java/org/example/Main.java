@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -21,11 +20,12 @@ public class Main {
 
             // Display a simple menu to the user with the inputs for each function.
             System.out.println("Ange ditt val (1-5): \n");
-            System.out.println("1. Visa användare. " +
-                    "\n2. Lägg till användare. " +
-                    "\n3. Ta bort användare. " +
-                    "\n4. Sök efter användare med id. " +
-                    "\n5. Stäng programmet.");
+            System.out.println("""
+                    1. Visa användare.\s
+                    2. Lägg till användare.\s
+                    3. Ta bort användare.\s
+                    4. Sök efter användare med id.\s
+                    5. Stäng programmet.""");
 
             try {
                 // Get user input as string and convert to int in order to easier avoid and catch

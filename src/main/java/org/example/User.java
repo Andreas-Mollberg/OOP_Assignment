@@ -3,9 +3,9 @@ package org.example;
 public class User {
 
     // Create variables needed by the User class.
-    private int id;
-    private String name;
-    private String email;
+    private final int id;
+    private final String name;
+    private final String email;
 
     // Constructor to create a new user.
     public User(int id, String name, String email) {

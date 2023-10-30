@@ -7,7 +7,7 @@ import java.util.Comparator;
 public class UserList {
 
     // Create an ArrayList of users.
-    private ArrayList<User> userList;
+    private final ArrayList<User> userList;
     private int nextUserId; // Variable to allocate unique user ids.
 
     // Constructor for UserList.
@@ -46,7 +46,7 @@ public class UserList {
 
     // Method to sort userList.
     public void sortUsers() {
-        Collections.sort(userList, Comparator.comparing(User::getName));
+        userList.sort(Comparator.comparing(User::getName));
 
     }
 
