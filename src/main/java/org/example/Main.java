@@ -14,7 +14,6 @@ public class Main {
         userList.addUser("Linus", "Linus@example.com");
 
 
-
         boolean shouldExit = false;
         while (!shouldExit) {
 
@@ -38,7 +37,7 @@ public class Main {
                     switch (selectedOption) {
                         case 1:
                             userList.sortUsers();
-                            UserPrinter.printUsers(userList.getUserList());
+                            UserPrinter.printUserList(userList.getUserList());
                             break;
 
                         case 2:
@@ -55,23 +54,16 @@ public class Main {
                         case 3:
                             try {
 
-                            System.out.println("Id för användaren som ska tas bort: ");
+                                System.out.println("Id för användaren som ska tas bort: ");
 
-                            // Get user input as string and convert to int in order to easier avoid and catch
-                            // exceptions due to invalid inputs.
-                            String idToRemoveInput = scanner.nextLine();
-                            int idToRemove = Integer.parseInt(idToRemoveInput);
+                                // Get user input as string and convert to int in order to easier avoid and catch
+                                // exceptions due to invalid inputs.
+                                String idToRemoveInput = scanner.nextLine();
+                                int idToRemove = Integer.parseInt(idToRemoveInput);
 
-                            var userToRemove = userList.searchUserById(idToRemove);
-
-                            if (userToRemove != null) {
                                 userList.removeUser(idToRemove);
 
-                                System.out.println(userToRemove.getName() + " har tagits bort.");
-                            } else {
-                                System.out.println("Användaren hittades inte.");
-                            }
-                            }catch (NumberFormatException e) {
+                            } catch (NumberFormatException e) {
                                 System.out.println("Ogiltigt tecken. Ange ett giltigt ID.");
                             }
                             break;
@@ -84,16 +76,11 @@ public class Main {
                                 // exceptions due to invalid inputs.
                                 String idToSearchForInput = scanner.nextLine();
                                 int idToSearchFor = Integer.parseInt(idToSearchForInput);
-                                
+
                                 var foundUser = userList.searchUserById(idToSearchFor);
+                                UserPrinter.printUser(foundUser);
 
-                                if (foundUser != null) {
-                                    UserPrinter.printUser(foundUser);
-                                } else {
-                                    System.out.println("Användaren hittades inte.");
-                                }
-
-                            }catch (NumberFormatException e) {
+                            } catch (NumberFormatException e) {
                                 System.out.println("Ogiltigt tecken. Ange ett giltigt ID.");
                             }
                             break;
@@ -108,11 +95,11 @@ public class Main {
                             break;
                     }
 
-                // Message to display in case the user inputs a valid number but outside the range.
+                    // Message to display in case the user inputs a valid number but outside the range.
                 } else {
                     System.out.println("Ogiltigt nummer. Ange ett tal mellan 1 och 5");
                 }
-            // Catch and display a message in case the user inputs an invalid input.
+                // Catch and display a message in case the user inputs an invalid input.
             } catch (NumberFormatException e) {
                 System.out.println("Ogiltigt tecken. Försök igen.");
             }
