@@ -41,7 +41,6 @@ public class Main {
                             break;
 
                         case 2:
-                            // Ask for and create variables based on user input.
                             // User .trim to account for unexpected whitespaces.
                             System.out.println("Namn på ny användare: ");
                             String userNameToAdd = scanner.nextLine().trim();

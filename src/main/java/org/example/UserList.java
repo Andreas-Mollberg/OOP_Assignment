@@ -6,6 +6,7 @@ import java.util.Comparator;
 public class UserList {
     private final ArrayList<User> userList;
     private int nextUserId; // Used to allocate unique user ids.
+    private int latestUserId = 0; // Used to allocate unique user ids.
 
     public UserList() {
         userList = new ArrayList<>();
@@ -18,6 +19,8 @@ public class UserList {
         } else {
             int newUserId = nextUserId;
             nextUserId++;
+            latestUserId++;
+
 
             User newUser = new User(newUserId, userName, email);
             userList.add(newUser);
@@ -26,7 +29,7 @@ public class UserList {
     }
 
     public void removeUser(int id) {
-        if (id >= 1 && id <= userList.size()) {
+        if (id >= 1 && id <= latestUserId) {
             User userToRemove = searchUserById(id);
             userList.remove(userToRemove);
             System.out.println(userToRemove.getNAME() + " har tagits bort.");
@@ -37,7 +40,7 @@ public class UserList {
 
     public User searchUserById(int id) {
         try {
-            if (id <= 0 || id > userList.size()) {
+            if (id <= 0 || id > latestUserId) {
                 System.out.println("Felaktigt id.");
                 return null;
             }
@@ -51,13 +54,12 @@ public class UserList {
             System.out.println("Användaren med id " + id + " hittades inte.");
             return null;
         } catch (Exception e) {
-            System.out.println("Något gick fel vid sökning av användaren.");
+            System.out.println("Något gick fel vid sökning efter användaren.");
             e.printStackTrace();
             System.out.println("Felaktig inmatning av id.");
             return null;
         }
     }
-
 
     public void sortUsers() {
         userList.sort(Comparator.comparing(User::getNAME));
