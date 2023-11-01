@@ -106,3 +106,47 @@ public void addUser(String userName, String userEmail) {
 In this example I try to keep adhering to clear and obvious naming conventions that means no need for comments even for 
 people that are still fairly new to coding, addUser as the method name and newUserId, nextUserId, userName and userEmail
 as the name of variables and newUser as the name of the User object.
+
+### Example
+```java
+case 4:
+    try {
+        System.out.println("Input the id of the character you wish to search for: ");
+
+        // Get user input as string and convert to int in order to easier avoid and catch
+        // exceptions due to invalid inputs.
+        String idToSearchForInput = scanner.nextLine();
+        int idToSearchFor = Integer.parseInt(idToSearchForInput);
+
+        var foundUser = userList.searchUserById(idToSearchFor);
+        UserPrinter.printUser(foundUser);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid character. Please enter a valid id.");
+        }
+        break;
+    
+        case 5:
+            // Flag the boolean shouldExit to true in order to close the program.
+            shouldExit = true;
+            break;
+
+            // Default message in case the user enters a menu option that's not valid.
+            default:
+                System.out.println("Invalid input. Please try again.");
+                break;
+            }
+
+            // Message to display in case the user inputs a valid number but outside the range.
+            } else {
+                System.out.println("Invalid number, enter a number between 1 and 5.");
+            }
+            // Catch and display a message in case the user inputs an invalid input.
+        } catch (NumberFormatException e) {
+                System.out.println("Invalid character. Please try again.");
+            }
+}
+```
+The one area where I deemed it prudent to add more comments was error handling. At my current experience level it is still
+very much a learning area and I had to use multiple try/catches in order to catch incorrect inputs from the user
+and output a message about just what they did wrong.

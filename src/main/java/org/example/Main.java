@@ -83,6 +83,7 @@ public class Main {
                                 System.out.println("Invalid character. Please enter a valid id.");
                             }
                             break;
+
                         case 5:
                             // Flag the boolean shouldExit to true in order to close the program.
                             shouldExit = true;
