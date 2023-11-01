@@ -8,12 +8,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         UserList userList = new UserList();
 
-        // Add example users
-        userList.addUser("Geetika", "Geetika@example.com");
-        userList.addUser("Adam", "Adam@example.com");
-        userList.addUser("Linus", "Linus@example.com");
+        addExampleUsers(userList);
 
+        runMainMenu(scanner, userList);
 
+    }
+
+    // The main method in which the application is navigated and calls to all the other methods are made from.
+    private static void runMainMenu(Scanner scanner, UserList userList) {
         boolean shouldExit = false;
         while (!shouldExit) {
 
@@ -63,7 +65,8 @@ public class Main {
                                 userList.removeUser(idToRemove);
 
                             } catch (NumberFormatException e) {
-                                System.out.println("Invalid character. Please enter a valid id.");
+                                System.out.println("Invalid user ID. " +
+                                        "Please enter a valid user ID between 1 and " + userList.getLatestUserId());
                             }
                             break;
 
@@ -104,7 +107,12 @@ public class Main {
                 System.out.println("Invalid character. Please try again.");
             }
         }
+    }
 
+    private static void addExampleUsers(UserList userList) {
+        userList.addUser("Geetika", "Geetika@example.com");
+        userList.addUser("Adam", "Adam@example.com");
+        userList.addUser("Linus", "Linus@example.com");
     }
 
 

@@ -55,12 +55,16 @@ public class UserList {
 
             System.out.println("The user with id " + id + " was not found.");
             return null;
-        } catch (Exception e) {
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("Something went wrong when searching for the user.");
             e.printStackTrace();
             System.out.println("Incorrect input of id");
             return null;
         }
+    }
+
+    public int getLatestUserId() {
+        return latestUserId;
     }
 
     public void sortUsers() {
