@@ -18,13 +18,13 @@ public class Main {
         while (!shouldExit) {
 
 
-            System.out.println("Ange ditt val (1-5): \n");
+            System.out.println("Input selection: \n");
             System.out.println("""
-                    1. Visa användare.\s
-                    2. Lägg till användare.\s
-                    3. Ta bort användare.\s
-                    4. Sök efter användare med id.\s
-                    5. Stäng programmet.""");
+                    1. Show users.\s
+                    2. Add user.\s
+                    3. Delete user.\s
+                    4. Search for user by id.\s
+                    5. Exit the application.""");
 
             try {
                 // Get user input as string and convert to int in order to easier avoid and catch
@@ -42,9 +42,9 @@ public class Main {
 
                         case 2:
                             // User .trim to account for unexpected whitespaces.
-                            System.out.println("Namn på ny användare: ");
+                            System.out.println("Input the name of the new user: ");
                             String userNameToAdd = scanner.nextLine().trim();
-                            System.out.println("Email för ny användare: ");
+                            System.out.println("Input the email of the new user: ");
                             String userEmailToAdd = scanner.nextLine().trim();
 
                             userList.addUser(userNameToAdd, userEmailToAdd);
@@ -53,7 +53,7 @@ public class Main {
                         case 3:
                             try {
 
-                                System.out.println("Id för användaren som ska tas bort: ");
+                                System.out.println("Input the id of the user you wish to delete: ");
 
                                 // Get user input as string and convert to int in order to easier avoid and catch
                                 // exceptions due to invalid inputs.
@@ -63,13 +63,13 @@ public class Main {
                                 userList.removeUser(idToRemove);
 
                             } catch (NumberFormatException e) {
-                                System.out.println("Ogiltigt tecken. Ange ett giltigt ID.");
+                                System.out.println("Invalid character. Please enter a valid id.");
                             }
                             break;
 
                         case 4:
                             try {
-                                System.out.println("Ange id för användaren som ska sökas upp: ");
+                                System.out.println("Input the id of the character you wish to search for: ");
 
                                 // Get user input as string and convert to int in order to easier avoid and catch
                                 // exceptions due to invalid inputs.
@@ -80,7 +80,7 @@ public class Main {
                                 UserPrinter.printUser(foundUser);
 
                             } catch (NumberFormatException e) {
-                                System.out.println("Ogiltigt tecken. Ange ett giltigt ID.");
+                                System.out.println("Invalid character. Please enter a valid id.");
                             }
                             break;
                         case 5:
@@ -90,17 +90,17 @@ public class Main {
 
                         // Default message in case the user enters a menu option that's not valid.
                         default:
-                            System.out.println("Felaktigt val. Försök igen.");
+                            System.out.println("Invalid input. Please try again.");
                             break;
                     }
 
                     // Message to display in case the user inputs a valid number but outside the range.
                 } else {
-                    System.out.println("Ogiltigt nummer. Ange ett tal mellan 1 och 5");
+                    System.out.println("Invalid number, enter a number between 1 and 5.");
                 }
                 // Catch and display a message in case the user inputs an invalid input.
             } catch (NumberFormatException e) {
-                System.out.println("Ogiltigt tecken. Försök igen.");
+                System.out.println("Invalid character. Please try again.");
             }
         }
 

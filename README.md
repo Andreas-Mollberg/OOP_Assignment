@@ -61,9 +61,9 @@ experience level in Java.
 ```java
 case 2:
     // User .trim to account for unexpected whitespaces.
-    System.out.println("Namn på ny användare: ");
+    System.out.println("Input the name of the new user: ");
     String userNameToAdd = scanner.nextLine().trim();
-    System.out.println("Email för ny användare: ");
+    System.out.println("Input the email of the new user: ");
     String userEmailToAdd = scanner.nextLine().trim();
 
     userList.addUser(userNameToAdd, userEmailToAdd);
@@ -88,18 +88,21 @@ The classes themselves are named clearly for their purpose, there are four class
 
 ### Example
 ```java
-public void addUser(String userName, String email) {
-    if (userName.isBlank() || email.isBlank()) {
-        System.out.println("Namn eller email kan inte vara blanka.");
+public void addUser(String userName, String userEmail) {
+    if (userName.isBlank() || userEmail.isBlank()) {
+        System.out.println("Name or email cannot be empty.");
     } else {
         int newUserId = nextUserId;
         nextUserId++;
         latestUserId++;
 
 
-        User newUser = new User(newUserId, userName, email);
+        User newUser = new User(newUserId, userName, userEmail);
         userList.add(newUser);
-        System.out.println(userName + " har lagts till.");
+        System.out.println(userName + " has been added.");
     }
 }
 ```
+In this example I try to keep adhering to clear and obvious naming conventions that means no need for comments even for 
+people that are still fairly new to coding, addUser as the method name and newUserId, nextUserId, userName and userEmail
+as the name of variables and newUser as the name of the User object.

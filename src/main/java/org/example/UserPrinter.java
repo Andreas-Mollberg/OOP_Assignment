@@ -11,6 +11,6 @@ public class UserPrinter {
     }
 
     public static void printUser(User user) {
-        System.out.println("ID: " + user.getID() + ", Namn: " + user.getNAME() + ", Email: " + user.getEMAIL());
+        System.out.println("ID: " + user.getID() + ", Name: " + user.getNAME() + ", Email: " + user.getEMAIL());
     }
 }
